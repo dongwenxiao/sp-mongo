@@ -1,0 +1,23 @@
+{
+  "name": "sp-mongo",
+  "version": "1.0.0",
+  "description": "MongoDB CRUD fun.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongwenxiao/sp-mongo"
+  },
+  "keywords": [
+    "sp-mongo",
+    "mongodb"
+  ],
+  "author": "cs_victor@126.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dongwenxiao/sp-mongo/issues"
+  },
+  "homepage": "https://github.com/dongwenxiao/sp-mongo#readme"
+}
