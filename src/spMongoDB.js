@@ -3,6 +3,13 @@ const ObjectID = mongo.ObjectID
 const MongoClient = mongo.MongoClient
 
 
+/**
+ * 操作Mongodb的类
+ * 构造方法需要参数{ip: '', port: '', db: ''}
+ * 
+ * @export
+ * @class spMongoDB
+ */
 export default class spMongoDB {
     constructor(opt) {
         this.ip = opt.ip
