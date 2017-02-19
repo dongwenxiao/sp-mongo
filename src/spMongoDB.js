@@ -53,7 +53,9 @@ export default class spMongoDB {
 
         selecter._limit !== undefined && cursor.limit(selecter._limit)
         selecter._skip !== undefined && cursor.skip(selecter._skip)
-        selecter._filter !== undefined && cursor.skip(selecter._filter) // 子项过滤
+        // selecter._filter !== undefined && cursor.skip(selecter._filter) // 子项过滤
+        selecter._sort !== undefined && cursor.sort(selecter._sort)
+        // selecter._sort !== undefined && cursor.sort({name: 1, age: -1})
 
         const result = cursor.toArray()
         db.close()
