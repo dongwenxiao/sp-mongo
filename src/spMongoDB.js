@@ -17,7 +17,7 @@ export default class spMongoDB {
         this.db = opt.db
     }
 
-    
+
     /**
      * 获取mongodb链接对象
      * 
@@ -57,8 +57,10 @@ export default class spMongoDB {
         selecter._sort !== undefined && cursor.sort(selecter._sort)
         // selecter._sort !== undefined && cursor.sort({name: 1, age: -1})
 
-        const result = cursor.toArray()
-        db.close()
+        const result = cursor.toArray().then((docs) => {
+            db.close()
+            return docs
+        })
 
         return result
 
@@ -72,9 +74,12 @@ export default class spMongoDB {
         const db = await this.getDB()
         const col = await db.collection(collection)
 
-        const result = await col.insert(doc)
+        const result = await col.insert(doc).then(res => {
+            db.close()
+            return res
+        })
 
-        db.close()
+
         return result
     }
 
@@ -89,9 +94,11 @@ export default class spMongoDB {
         const db = await this.getDB()
         const col = await db.collection(collection)
 
-        const result = col.update(selecter, { $set: doc }, option)
+        const result = col.update(selecter, { $set: doc }, option).then(res => {
+            db.close()
+            return res
+        })
 
-        db.close()
         return result
     }
 
@@ -105,9 +112,11 @@ export default class spMongoDB {
         const db = await this.getDB()
         const col = await db.collection(collection)
 
-        const result = col.remove(selecter)
+        const result = col.remove(selecter).then(res => {
+            db.close()
+            return res
+        })
 
-        db.close()
         return result
     }
 

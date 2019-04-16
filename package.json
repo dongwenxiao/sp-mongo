@@ -1,6 +1,6 @@
 {
   "name": "sp-mongo",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "MongoDB CRUD fun.",
   "main": "index.js",
   "scripts": {
